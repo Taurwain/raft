@@ -1,0 +1,33 @@
+# Example Raft cluster configuration.
+# Pass --self-id on the command line (or via the launcher) to pick which node
+# to run. The launcher spawns one process per node in `nodes`.
+
+cluster_name: raft-cluster
+
+# This node id is used by `app.main`; it MUST be one of the ids below.
+
+nodes:
+  - id: node-1
+    host: 127.0.0.1
+    port: 8101
+  - id: node-2
+    host: 127.0.0.1
+    port: 8102
+  - id: node-3
+    host: 127.0.0.1
+    port: 8103
+
+limits:
+  election_timeout_min_ms: 150
+  election_timeout_max_ms: 300
+  heartbeat_interval_ms: 100
+  rpc_timeout_ms: 100
+  log_dir: logs
+
+# --- To run with 5 nodes, add two more peers: -------------------------------
+#  - id: node-4
+#    host: 127.0.0.1
+#    port: 8104
+#  - id: node-5
+#    host: 127.0.0.1
+#    port: 8105

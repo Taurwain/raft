@@ -1,0 +1,30 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = "Distributed consensus (Raft)"
+readme = "README.md"
+authors = [
+    { name = "maksimov.artem70", email = "maksimov.artem70@rwb.ru" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.115",
+    "uvicorn[standard]==0.34",
+    "pydantic==2.10",
+    "pyyaml==6.0.2",
+    "httpx==0.28",
+    "structlog==24.4",
+    "dishka==1.10.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.25",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3", "pytest-asyncio>=0.25"]
+
+[tool.uv]
+package = false
